@@ -75,11 +75,21 @@
         </div>
         <div style="padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;flex:1">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#a89f92">EST. {{ b.est }}</span>
+            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#a89f92">{{ b.estLine }}</span>
             <span style="{{ b.statusStyle }}">{{ b.status }}</span>
           </div>
           <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(24px,2.6vw,32px);line-height:1.15;margin:0;color:#e6c9a3">{{ b.name }}</h2>
-          <p style="font-size:20px;line-height:1.55;margin:0;color:#d9cfc0;flex:1">{{ b.desc }}</p>
+          <div style="display:flex;flex-direction:column;gap:14px;flex:1">
+            <p style="font-size:20px;line-height:1.55;margin:0;color:#d9cfc0">{{ b.lead }}</p>
+            <sc-if value="{{ b.open }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ b.rest }}" as="p" hint-placeholder-count="2">
+                <p style="font-size:20px;line-height:1.55;margin:0;color:#d9cfc0">{{ p }}</p>
+              </sc-for>
+            </sc-if>
+            <sc-if value="{{ b.hasMore }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ b.toggle }}" style="align-self:flex-start;background:transparent;border:0;border-bottom:1px solid #c8a27c;padding:0 0 2px;color:#e6c9a3;cursor:pointer;font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em" style-hover="color:#fff3e0">{{ b.toggleLabel }}</button>
+            </sc-if>
+          </div>
           <div style="display:flex;gap:12px;align-items:baseline;padding-top:14px;border-top:1px solid rgba(200,162,124,0.25)">
             <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#c8a27c">OWNER</span>
             <span style="font-style:italic;font-size:20px;color:#e9e1d4">{{ b.owner }}</span>
@@ -143,6 +153,13 @@
 class Component extends DCLogic {
   componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
   componentWillUnmount() { window.removeEventListener('resize', this.__r); }
+  descVals(b) {
+    const ps = Array.isArray(b.desc) ? b.desc : [b.desc];
+    const open = !!((this.state || {}).__open || {})[b.name];
+    return { lead: ps[0], rest: ps.slice(1), hasMore: ps.length > 1, open, toggleLabel: open ? 'SHOW LESS' : 'READ MORE',
+      estLine: 'EST. ' + b.est + (b.type ? ' · ' + b.type.toUpperCase() : ''),
+      toggle: () => this.setState(p => ({ __open: { ...((p && p.__open) || {}), [b.name]: !open } })) };
+  }
   renderVals() {
     const s = this.state || {}; const n = (s.__w || 1200) < 1100;
     const pill = (st) => {
@@ -151,13 +168,15 @@ class Component extends DCLogic {
     };
     return {
       wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })),
-      businesses: BUSINESSES.map(b => ({ ...b, photo: b.photo || null, photoBg: b.photo ? 'url("' + b.photo + '")' : 'none', noPhoto: !b.photo, initial: b.name.replace(/^The /, '')[0], statusStyle: pill(b.status) })),
+      businesses: BUSINESSES.map(b => ({ ...b, ...this.descVals(b), photo: b.photo || null, photoBg: b.photo ? 'url("' + b.photo + '")' : 'none', noPhoto: !b.photo, initial: b.name.replace(/^The /, '')[0], statusStyle: pill(b.status) })),
       steps: STEPS, ticketItems: TICKET
     };
   }
 }
 // status: 'OPEN' | 'FOR SALE' | 'CLOSED'. Add photo: 'your-image.jpg' to show an image.
 const BUSINESSES = [
+  { name: 'The Salt & Thorn', est: '1708', type: 'Historic Waterfront Tavern', photo: 'salt-and-thorn.png', status: 'FOR SALE', owner: 'Available', desc: ["A fixture of Noctura's waterfront since 1708, The Salt & Thorn is one of the town's oldest continuously operating establishments. With its weathered wooden beams, roaring stone fireplace, and well-worn bar, the tavern has welcomed generations of sailors, merchants, townspeople, and travelers.","To the ordinary eye, The Salt & Thorn is simply a charming, centuries-old waterfront tavern. What most visitors don't realize is that the establishment is Veiled, its true nature and supernatural clientele concealed from those who remain unaware of Noctura's hidden world.","Among those in the know, The Salt & Thorn is recognized neutral territory. Witches, vampires, shapeshifters, fae, spirits, and mortals are equally welcome, regardless of their allegiances or longstanding rivalries. Everyone understands that disputes, threats, and violence are to be left at the door.","Neutrality, however, should never be mistaken for leniency. The proprietor takes the tavern's rules seriously and has no hesitation about throwing out anyone who disturbs the peace. Titles, influence, and supernatural power mean very little when the owner tells someone it's time to leave.","Over the centuries, The Salt & Thorn has hosted clandestine meetings, unlikely alliances, and negotiations between individuals who might otherwise be enemies. Its secluded back booth is particularly famous among supernatural patrons for an enchantment that prevents conversations held there from being overheard.","At The Salt & Thorn, everyone is welcome, everyone knows the rules, and everyone answers to the proprietor."] },
+  { name: 'The Gilded Fox', est: '1898', type: 'Billiards & Social Club', photo: 'gilded-fox.png', status: 'FOR SALE', owner: 'Available', desc: ["Located in Noctura's historic downtown, The Gilded Fox has been a gathering place for the town's residents since 1898. Originally established as a gentlemen's billiards club, it gradually evolved into a welcoming social establishment open to everyone.","Behind its handsome Victorian storefront, visitors find richly paneled walls, green-felt billiards tables, card rooms, comfortable leather seating, and a collection of games that has grown considerably over the decades.","The Gilded Fox is a favorite destination for friendly competition, casual conversation, and the occasional high-stakes wager. Mortals and supernatural residents mingle freely, though some of the club's older members have a remarkable talent for winning games they seemingly have no business winning.","Rumors persist about certain tables where luck behaves strangely, and an antique chessboard whose pieces occasionally move when nobody is watching.","Unlike The Salt & Thorn, The Gilded Fox isn't neutral territory. Rivalries and disagreements are very much part of its social atmosphere, making it an excellent setting for character interactions.","At The Gilded Fox, everyone has a game to play."] },
   { name: 'Belladonna & Briar', est: '1874', photo: 'belladonna-and-briar.png', status: 'FOR SALE', owner: 'Available', desc: 'An apothecary and herbalist on the old village streets. To the Anchored it sells teas, tinctures, and remedies; to those who know where to look, it supplies ingredients for the Art.' },
   { name: 'Blackthorn Books', est: '1891', photo: 'blackthorn-books.png', status: 'FOR SALE', owner: 'Available', desc: "A bookshop in Noctura's commercial district since the age of modernization, stocking new, used, and rare titles, with shelves the casual browser never seems to reach." },
   { name: 'The Mourning Dove Inn', est: '1886', photo: 'mourning-dove-inn.png', status: 'FOR SALE', owner: 'Available', desc: 'A Victorian inn on the waterfront, offering fine rooms and good company to travelers and residents since 1886. Some guests check in and never quite check out.' },
