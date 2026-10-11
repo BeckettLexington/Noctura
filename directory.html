@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <title>Noctura · Business Directory</title>
-<link rel="icon" href="assets/noctura-crest.png">
+<link rel="icon" href="noctura-crest.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}button{font:inherit}</style>
@@ -156,12 +156,12 @@ class Component extends DCLogic {
     };
   }
 }
-// status: 'OPEN' | 'FOR SALE' | 'CLOSED'. Add photo: 'assets/your-image.jpg' to show an image.
+// status: 'OPEN' | 'FOR SALE' | 'CLOSED'. Add photo: 'your-image.jpg' to show an image.
 const BUSINESSES = [
-  { name: 'Belladonna & Briar', est: '1874', photo: 'assets/belladonna-and-briar.png', status: 'FOR SALE', owner: 'Available', desc: 'An apothecary and herbalist on the old village streets. To the Anchored it sells teas, tinctures, and remedies; to those who know where to look, it supplies ingredients for the Art.' },
-  { name: 'Blackthorn Books', est: '1891', photo: 'assets/blackthorn-books.png', status: 'FOR SALE', owner: 'Available', desc: "A bookshop in Noctura's commercial district since the age of modernization, stocking new, used, and rare titles, with shelves the casual browser never seems to reach." },
-  { name: 'The Mourning Dove Inn', est: '1886', photo: 'assets/the-mourning-dove.png', status: 'FOR SALE', owner: 'Available', desc: 'A Victorian inn on the waterfront, offering fine rooms and good company to travelers and residents since 1886. Some guests check in and never quite check out.' },
-  { name: 'The Velvet Hour', est: '1923', photo: 'assets/the-velvet-hour.png', status: 'FOR SALE', owner: 'Available', desc: 'A supper club born in the Roaring Twenties, when jazz, dance halls, and nightlife flourished in Noctura. Low lights, live music, and a back room for private business.' }
+  { name: 'Belladonna & Briar', est: '1874', photo: 'belladonna-and-briar.png', status: 'FOR SALE', owner: 'Available', desc: 'An apothecary and herbalist on the old village streets. To the Anchored it sells teas, tinctures, and remedies; to those who know where to look, it supplies ingredients for the Art.' },
+  { name: 'Blackthorn Books', est: '1891', photo: 'blackthorn-books.png', status: 'FOR SALE', owner: 'Available', desc: "A bookshop in Noctura's commercial district since the age of modernization, stocking new, used, and rare titles, with shelves the casual browser never seems to reach." },
+  { name: 'The Mourning Dove Inn', est: '1886', photo: 'the-mourning-dove.png', status: 'FOR SALE', owner: 'Available', desc: 'A Victorian inn on the waterfront, offering fine rooms and good company to travelers and residents since 1886. Some guests check in and never quite check out.' },
+  { name: 'The Velvet Hour', est: '1923', photo: 'the-velvet-hour.png', status: 'FOR SALE', owner: 'Available', desc: 'A supper club born in the Roaring Twenties, when jazz, dance halls, and nightlife flourished in Noctura. Low lights, live music, and a back room for private business.' }
 ];
 const STEPS = [
   { num: 'I', title: 'Choose a business', copy: 'Pick a business listed as For Sale in this directory, or come up with a concept of your own.' },

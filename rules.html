@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <title>Noctura · Rules</title>
-<link rel="icon" href="assets/noctura-crest.png">
+<link rel="icon" href="noctura-crest.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}</style>
@@ -19,10 +19,11 @@
   <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
     <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
     <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+      <div style="display:flex;gap:clamp(14px,1.8vw,26px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em">
         <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
         <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
         <a href="world.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">WORLD</a>
+        <a href="directory.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">DIRECTORY</a>
         <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
         <a href="rules.html" style="color:#e6c9a3;text-decoration:none">RULES</a>
         <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
@@ -39,6 +40,7 @@
       <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
       <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
       <a href="world.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="directory.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">DIRECTORY</a>
       <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
       <a href="rules.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
       <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
@@ -99,7 +101,7 @@
 class Component extends DCLogic {
   componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
   componentWillUnmount() { window.removeEventListener('resize', this.__r); }
-  __nav() { const s = this.state || {}; const n = (s.__w || 1200) < 860; return { wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })) }; }
+  __nav() { const s = this.state || {}; const n = (s.__w || 1200) < 1100; return { wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })) }; }
   renderVals() { return { ...this.__rv(), ...this.__nav() }; }
   __rv() {
  return { rules: RULES }; }
