@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Noctura · World Mechanics</title>
+<link rel="icon" href="assets/noctura-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}button{font:inherit}</style>
+</helmet>
+
+<nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+    <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+        <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
+        <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
+        <a href="world.html" style="color:#e6c9a3;text-decoration:none">WORLD</a>
+        <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
+        <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
+        <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
+      </div>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;border-top:1px solid rgba(200,162,124,0.2)">
+      <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
+      <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
+      <a href="world.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
+      <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
+      <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="background:radial-gradient(ellipse at 50% 0%,#1a1612 0%,#0a090b 65%);padding:104px clamp(20px,5vw,56px) 72px;text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.36em;color:#c8a27c;margin:0 0 20px">HOW NOCTURA WORKS</p>
+  <h1 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.1;margin:0 auto;max-width:18ch">World Mechanics</h1>
+  <p style="font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:44ch">The practical workings of a hidden town: who lives here, how the lights stay on, and what happens when you leave.</p>
+</header>
+
+<div style="position:sticky;top:77px;z-index:5;background:#0a090b;border-top:1px solid rgba(200,162,124,0.25);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1000px;margin:0 auto;padding:12px clamp(12px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:center;gap:8px">
+    <a href="#echelons" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em;color:#e6c9a3;border:1px solid rgba(200,162,124,0.5);padding:10px 14px;text-decoration:none" style-hover="background:rgba(200,162,124,0.12)">THE THREE ECHELONS</a>
+    <a href="#infrastructure" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em;color:#e6c9a3;border:1px solid rgba(200,162,124,0.5);padding:10px 14px;text-decoration:none" style-hover="background:rgba(200,162,124,0.12)">INFRASTRUCTURE &amp; TECH</a>
+    <a href="#transit" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em;color:#e6c9a3;border:1px solid rgba(200,162,124,0.5);padding:10px 14px;text-decoration:none" style-hover="background:rgba(200,162,124,0.12)">TRANSIT &amp; PUBLIC ORDER</a>
+  </div>
+</div>
+
+<main style="max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,56px) 104px">
+
+  <section id="echelons" style="padding-top:88px;scroll-margin-top:150px">
+    <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 14px">WORLD MECHANICS</p>
+    <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 20px">The Three Echelons</h2>
+    <p style="font-size:22px;line-height:1.55;color:#d9cfc0;margin:0 0 40px;max-width:60ch">The population of Noctura is organized across three distinct metaphysical and operational tiers, defined by lifespan, leverage, and biological vulnerability.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1px;background:rgba(200,162,124,0.3);border:1px solid rgba(200,162,124,0.3)">
+      <article style="flex:2 1 520px;background:#0f0d10;padding:clamp(28px,4vw,44px);min-width:0">
+        <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#a89f92;margin:0 0 8px">I</p>
+        <h3 style="font-family:'Cinzel',serif;font-weight:500;font-size:28px;margin:0 0 12px;color:#e6c9a3">Mortals</h3>
+        <p style="font-size:20px;line-height:1.55;color:#d9cfc0;margin:0 0 24px">Divided into two operational camps: the Anchored and the Awake.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:28px 40px">
+          <div style="flex:1 1 240px;border-top:1px solid rgba(200,162,124,0.4);padding-top:18px">
+            <h4 style="font-family:'Cinzel',serif;font-weight:500;font-size:19px;margin:0 0 10px">The Anchored</h4>
+            <p style="font-size:19px;line-height:1.55;color:#b9afa1;margin:0">Mundane humans who crossed the Drift by accident and stayed, completely unaware of the reality surrounding them. Noctura’s ambient glamour induces a continuous cognitive dissonance; when confronted with impossible phenomena, their minds instinctively rationalize the event (a lycanthrope is "a rabid bear," a vampire’s speed is "a trick of the streetlamp," and an occult ward is "quaint local theater.") They staff town hall, run coffee shops, patch utility lines, stock hardware stores, and maintain the vital illusion of small-town normalcy.</p>
+          </div>
+          <div style="flex:1 1 240px;border-top:1px solid rgba(200,162,124,0.4);padding-top:18px">
+            <h4 style="font-family:'Cinzel',serif;font-weight:500;font-size:19px;margin:0 0 10px">The Awake</h4>
+            <p style="font-size:19px;line-height:1.55;color:#b9afa1;margin:0">Humans who have pierced the glamour and seen behind the curtain. Possessing no innate magic, they survive on pure grit, cold iron, perception, and leverage, exploiting all that human ingenuity and tradecraft have to offer. They act as the indispensable shock absorbers and intermediaries managing the boundary between the aware and unaware.</p>
+          </div>
+        </div>
+      </article>
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:1px">
+        <article style="flex:1;background:#0f0d10;padding:clamp(28px,4vw,44px)">
+          <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#a89f92;margin:0 0 8px">II</p>
+          <h3 style="font-family:'Cinzel',serif;font-weight:500;font-size:28px;margin:0 0 12px;color:#e6c9a3">Supernaturals</h3>
+          <p style="font-size:19px;line-height:1.55;color:#b9afa1;margin:0">Witches, bloodline sorcerers, shapeshifters, mediumistic lineages, and entities carrying active metaphysical traits. While formidable, they remain biologically mortal and susceptible to natural aging, iron, silver, ballistic trauma, and physical exhaustion.</p>
+        </article>
+        <article style="flex:1;background:#0f0d10;padding:clamp(28px,4vw,44px)">
+          <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#a89f92;margin:0 0 8px">III</p>
+          <h3 style="font-family:'Cinzel',serif;font-weight:500;font-size:28px;margin:0 0 12px;color:#e6c9a3">Immortals</h3>
+          <p style="font-size:19px;line-height:1.55;color:#b9afa1;margin:0">Ancient vampires, unbound fae, and ageless relics. Immune to time and biological decay, they are detached, predatory, and politically lethal.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+    <section id="{{ g.id }}" style="padding-top:104px;scroll-margin-top:150px">
+      <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 14px">WORLD MECHANICS</p>
+      <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 36px">{{ g.title }}</h2>
+      <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
+        <div style="display:flex;flex-wrap:wrap;gap:12px 48px;padding:32px 0;border-top:1px solid rgba(200,162,124,0.3)">
+          <h3 style="flex:1 1 220px;font-family:'Cinzel',serif;font-weight:500;font-size:21px;line-height:1.3;margin:0;color:#e6c9a3">{{ it.title }}</h3>
+          <div style="flex:3 1 460px;display:flex;flex-direction:column;gap:16px;min-width:0">
+            <sc-for list="{{ it.paras }}" as="p" hint-placeholder-count="2">
+              <p style="font-size:20px;line-height:1.6;margin:0;color:#d9cfc0">{{ p }}</p>
+            </sc-for>
+            <sc-if value="{{ it.hasBullets }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:0;border-left:1px solid #c8a27c;margin-top:4px">
+                <sc-for list="{{ it.bullets }}" as="b" hint-placeholder-count="3">
+                  <div style="padding:10px 0 10px 22px">
+                    <p style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.08em;color:#e6c9a3;margin:0 0 6px">{{ b.label }}</p>
+                    <p style="font-size:19px;line-height:1.55;margin:0;color:#b9afa1">{{ b.text }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+  </sc-for>
+</main>
+
+<footer style="border-top:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:17px;color:#a89f92">
+    <span>Noctura Roleplay. A community in Second Life, not affiliated with Linden Lab.</span>
+    <a href="index.html" style="color:#a89f92">Return to Noctura</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
+  componentWillUnmount() { window.removeEventListener('resize', this.__r); }
+  renderVals() {
+    const s = this.state || {}; const n = (s.__w || 1200) < 860;
+    return {
+      wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })),
+      groups: GROUPS.map(g => ({ ...g, items: g.items.map(i => ({ ...i, bullets: i.bullets || [], hasBullets: !!(i.bullets && i.bullets.length) })) }))
+    };
+  }
+}
+const GROUPS = [
+  { id: 'infrastructure', title: 'Infrastructure & Tech', items: [
+    { title: 'Satellites & GPS', paras: ['Orbital trilateration requires direct line of sight. The Drift bends overhead geometry, so commercial GPS receivers read Noctura as a dead zone.', 'Navigation apps simply spin on “Searching for Signal…” once you cross the Drift.'] },
+    { title: 'The Power Grid', paras: ['Power and landlines are physical. Noctura carries its baseline electrical load through localized municipal power—primarily an Awake-maintained tidal turbine station and backup diesel banks, supplemented by high-voltage lines and copper trunks physically spliced decades ago through the Drift under the salt marsh.', 'To regional utility monitoring on the outside, the spliced tap is metered through a shell entity and masked to reflect the modest, expected draw of an off-grid maritime salvage co-op.'] },
+    { title: 'Cellular & The "Intranet"', paras: ['Phones work inside Noctura because the town has its own localized, closed-loop micro-towers. In-city texts, calls, and local web boards run fine.'], bullets: [
+      { label: 'Outbound Routing', text: 'Outgoing calls or web traffic route through an Awake-managed proxy server banked on the outside.' },
+      { label: 'Roaming', text: 'Out-of-town phones roaming into Noctura will either drop to No Service or latch onto a generic local carrier identifier (N-Net).' },
+      { label: 'Caller ID Masking', text: 'N-Net’s outbound SIP trunk masks all outgoing calls with a spoofed Massachusetts area code and a rotating generic caller ID, preventing tracebacks.' }
+    ] },
+    { title: 'Data Corruption & The Drift', paras: ['Active supernatural manifestations release severe localized electromagnetic pulses (EMP) and ionizing electrostatic discharge. Consumer digital electronics lack the hardened shielding required to withstand these emissions:'], bullets: [
+      { label: 'At the Point of Capture (Local Recording)', text: 'High-frequency interference induces stray current across CMOS image sensors and mobile DSP pipelines. Video files suffer catastrophic keyframe loss, rolling-shutter tearing, and codec macroblocking, rendering raw media unreadable or freezing the camera app entirely.' },
+      { label: 'During Transmission (Livestreams/Calls)', text: 'Active metaphysical phenomena raise the local radio-frequency noise floor to near-opaque levels, shredding cellular packet data. Live feeds instantly drop frames, desync audio, and disconnect.' }
+    ] }
+  ]},
+  { id: 'transit', title: 'Transit, Transition & Public Order', items: [
+    { title: 'Logistics & Freight', paras: ['Mail and packages ship to a freight transfer depot outside the Drift in a distribution warehouse located in Essex County. From there, vetted Awake drivers ferry the goods past the Drift for internal delivery.'] },
+    { title: 'Leaving Noctura', paras: ['For any Awake, Supernatural, or Immortal entity, leaving Noctura is the same as leaving any other physical location.', "When an Anchored mortal crosses back through the Drift into the mundane world, the Undertow doesn't just snap off, the glamour solidifies their rationalization. They remember Noctura simply as a foggy, unremarkable New England fishing town, and their memories blur the specifics (names, roads, anomalies) into generic seaside vacation fog."] },
+    { title: 'Appearance & Public Baseline', paras: ['Because Anchored mortals maintain the civil infrastructure that keeps the town running, the Accord of Ash strictly mandates a plausible human presentation in all shared public spaces.', 'Noctura’s ambient glamour functions merely as a cognitive cushion; it cannot mask overt biological violations. Non-human residents must therefore disguise or compress their silhouettes through personal glamours, shapeshifting, or heavy wardrobe, reserving their true monstrosity strictly for secluded off-grid enclaves or among the billed platforms of the Midnight Traveling Show, where the impossible can safely hide in plain sight as sideshow theater.'] }
+  ]}
+];
+
+</script>
+</body>
+</html>

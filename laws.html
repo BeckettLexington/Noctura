@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Noctura · The Laws of Sanctuary</title>
+<link rel="icon" href="assets/noctura-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}button{font:inherit}</style>
+</helmet>
+
+<nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+    <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+        <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
+        <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
+        <a href="world.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">WORLD</a>
+        <a href="laws.html" style="color:#e6c9a3;text-decoration:none">LAWS</a>
+        <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
+        <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
+      </div>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;border-top:1px solid rgba(200,162,124,0.2)">
+      <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
+      <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
+      <a href="world.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="laws.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
+      <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
+      <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="background:radial-gradient(ellipse at 50% 0%,#1a1612 0%,#0a090b 65%);padding:104px clamp(20px,5vw,56px) 72px;text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.36em;color:#c8a27c;margin:0 0 20px">ESTABLISHED UNDER THE ACCORD OF ASH</p>
+  <h1 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.1;margin:0 auto;max-width:18ch">The Laws of Sanctuary</h1>
+  <p style="font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:40ch">Power is not forbidden. Its abuse is.</p>
+</header>
+
+<div style="position:sticky;top:77px;z-index:5;background:#0a090b;border-top:1px solid rgba(200,162,124,0.25);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1000px;margin:0 auto;padding:0 clamp(12px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:center;gap:0">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+      <button onClick="{{ t.select }}" style="{{ t.style }}" style-hover="color:#fff3e0">{{ t.label }}</button>
+    </sc-for>
+  </div>
+</div>
+
+<main style="max-width:860px;margin:0 auto;padding:72px clamp(20px,5vw,56px) 104px">
+  <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 14px;text-align:center">{{ doc.kicker }}</p>
+  <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.15;margin:0 0 10px;text-align:center">{{ doc.title }}</h2>
+  <p style="font-style:italic;font-size:20px;color:#a89f92;margin:0 0 48px;text-align:center">{{ doc.subtitle }}</p>
+
+  <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:24px">
+    <sc-for list="{{ doc.intro }}" as="p" hint-placeholder-count="2">
+      <p style="font-size:22px;line-height:1.6;margin:0;color:#e9e1d4">{{ p }}</p>
+    </sc-for>
+  </div>
+
+  <sc-for list="{{ doc.articles }}" as="a" hint-placeholder-count="6">
+    <section style="padding:40px 0 8px;border-top:1px solid rgba(200,162,124,0.25);margin-top:32px">
+      <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 8px">{{ a.num }}</p>
+      <h3 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(22px,2.4vw,28px);line-height:1.25;margin:0 0 22px;color:#e6c9a3">{{ a.title }}</h3>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="3">
+          <p style="font-size:21px;line-height:1.6;margin:0;color:#d9cfc0">{{ p }}</p>
+        </sc-for>
+      </div>
+      <sc-if value="{{ a.maxim }}" hint-placeholder-val="{{ false }}">
+        <p style="font-style:italic;font-size:24px;line-height:1.4;margin:24px 0 0;padding-left:20px;border-left:1px solid #c8a27c;color:#e9e1d4">{{ a.maxim }}</p>
+      </sc-if>
+    </section>
+  </sc-for>
+
+  <sc-if value="{{ doc.hasSigners }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:56px;padding-top:36px;border-top:1px solid rgba(200,162,124,0.4);text-align:center">
+      <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 24px">THE SEVEN SIGNATORIES</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px">
+        <sc-for list="{{ doc.signers }}" as="s" hint-placeholder-count="7"><span style="font-style:italic;font-size:22px">{{ s }}</span></sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="margin-top:56px;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+    <span style="font-size:20px;color:#c8a27c">✦</span>
+    <sc-for list="{{ doc.closing }}" as="c" hint-placeholder-count="1">
+      <p style="font-style:italic;font-size:21px;line-height:1.55;color:#d9cfc0;margin:0;max-width:52ch">{{ c }}</p>
+    </sc-for>
+    <p style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.16em;color:#e6c9a3;margin:12px 0 0">{{ doc.motto }}</p>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:72px;padding-top:28px;border-top:1px solid rgba(200,162,124,0.25)">
+    <sc-if value="{{ prev }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ prev.select }}" style="background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;padding:14px 20px;cursor:pointer;font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em;text-align:left" style-hover="background:rgba(200,162,124,0.1)">← {{ prev.label }}</button>
+    </sc-if>
+    <span style="flex:1"></span>
+    <sc-if value="{{ next }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ next.select }}" style="background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;padding:14px 20px;cursor:pointer;font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em;text-align:left" style-hover="background:rgba(200,162,124,0.1)">{{ next.label }} →</button>
+    </sc-if>
+  </div>
+</main>
+
+<footer style="border-top:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:17px;color:#a89f92">
+    <span>Noctura Roleplay. A community in Second Life, not affiliated with Linden Lab.</span>
+    <a href="index.html" style="color:#a89f92">Return to Noctura</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menuOpen: false, doc: 0 };
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onR);
+    const i = DOCS.findIndex(d => '#' + d.id === window.location.hash);
+    if (i >= 0) this.setState({ doc: i });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  go(i) {
+    this.setState({ doc: i });
+    try { history.replaceState(null, '', '#' + DOCS[i].id); } catch (e) {}
+    window.scrollTo({ top: Math.min(window.scrollY, 300), behavior: 'smooth' });
+  }
+  renderVals() {
+    const { w, menuOpen, doc } = this.state;
+    const narrow = w < 860;
+    const tab = (on) => ({ flex: 'none', fontFamily: "'Cinzel',serif", fontSize: '12px', letterSpacing: '0.16em', padding: '16px clamp(10px,2vw,22px)', background: 'transparent', border: 0, borderBottom: on ? '2px solid #c8a27c' : '2px solid transparent', color: on ? '#e6c9a3' : '#a89f92', cursor: 'pointer', whiteSpace: 'nowrap' });
+    const ref = (i) => (i >= 0 && i < DOCS.length) ? { label: DOCS[i].short, select: () => this.go(i) } : null;
+    return {
+      wide: !narrow, narrow, menuOpen: narrow && menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      tabsTop: narrow ? '77px' : '77px',
+      tabs: DOCS.map((d, i) => ({ label: d.short, style: tab(i === doc), select: () => this.go(i) })),
+      doc: DOCS[doc], prev: ref(doc - 1), next: ref(doc + 1)
+    };
+  }
+}
+const A = (num, title, paras, maxim) => ({ num, title, paras, maxim: maxim || null });
+const DOCS = [
+  { id: 'accord', short: 'ACCORD', kicker: 'THE FOUNDING LAW', title: 'The Accord of Ash', subtitle: 'Covenanted in the Year 1697', motto: 'So long as the Sanctuary endures, so too shall this Accord.', hasSigners: true,
+    signers: ['Mercy Harrow', 'The Cedar Man', 'Elias Mercer', 'Nicolas Vaudrin', 'Miriam Ahauton', 'Rhuven', 'Hannah Pike'],
+    intro: ['Let it be known that we who set our names hereunto, being of differing blood, nature, mortality, and kind, do establish upon this land a Sanctuary.', 'All who dwell within its bounds, whether Mortal, Supernatural, or Immortal, shall stand beneath its protection. No blood, birth, nature, lineage, power, faith, wealth, or station shall grant greater claim to Sanctuary than another.'],
+    articles: [
+      A('I', 'The Sanctuary shall endure.', ['Its existence shall be kept from those beyond its bounds who would expose, exploit, conquer, corrupt, or destroy it. None sheltered herein shall knowingly deliver knowledge of the Sanctuary, its paths, its defenses, or its people into the hands of those who would bring them harm.', 'None shall knowingly aid an enemy in finding passage into the Sanctuary, nor provide assistance toward its infiltration, conquest, or destruction.', 'None shall deliberately weaken, corrupt, break, or destroy the boundaries by which the Sanctuary is removed from the world beyond.', 'Any deliberate act presenting a clear and substantial danger to the secrecy, sovereignty, or continued existence of the Sanctuary shall constitute a breach of this Accord.']),
+      A('II', 'Seven shall keep the Sanctuary.', ['They shall sit in Council, and among them shall be represented the differing peoples for whom this refuge was made. When one seat is emptied, those who remain shall choose another, so that no one people may claim dominion over all others.', 'And whereas Sanctuary cannot endure where power is without restraint, the Seven shall establish and set forth laws governing both the practice of the Art and the exercise of those powers arising from blood, nature, condition, or kind.', 'For practitioners of the Art, the Council shall establish Seven Prohibitions, binding upon all who wield such power within these bounds. These Prohibitions shall protect life, body, mind, will, the dead, the course of time, and those boundaries which ought not be crossed.', 'And for those whose powers arise not from the Art but from their nature, the Council shall establish the Covenant of Restraint, governing the exercise of powers arising from blood, nature, condition, or kind, so that no being sheltered by the Sanctuary shall stand beyond restraint merely because their power is born rather than learned.', 'And that these laws shall not stand as words without consequence, the Seven shall establish an Order charged with their keeping and enforcement.', 'This Order shall act under the authority of the Council, preserving the laws of Sanctuary, investigating their violation, and bringing those accused before lawful judgment. It shall possess no authority above the Council, nor shall any member of the Order stand beyond the laws they are sworn to uphold.', 'This body shall be known as the Ordo Cineris, the Order of Ash.', 'To the Council alone belongs the grave authority to declare that this Accord has been broken.']),
+      A('III', 'And should the Accord be broken, Sanctuary shall no longer shelter the one who broke it.', ['Upon judgment of the Seven that a breach has occurred, the offender\'s existence shall be forfeit. Neither title nor blood, age nor power, service nor allegiance shall protect them. There shall be no appeal from the judgment, nor shall private loyalty stand before the preservation of the Sanctuary.', 'For this refuge belongs not to one of us, but to all who seek shelter within it, and to all who shall seek shelter hereafter.', 'We therefore bind ourselves first, that those who follow may be bound equally.'])
+    ],
+    closing: [] },
+  { id: 'prohibitions', short: 'PROHIBITIONS', kicker: 'LAWS OF THE ART', title: 'The Seven Prohibitions', subtitle: 'Established Under the Accord of Ash', motto: 'The Seven Prohibitions • Accord of Ash', hasSigners: false, signers: [],
+    intro: ['We, the Keepers and People of Noctura, in recognition of the powers entrusted to those who possess the Art; in defense of the liberty of the mind, the sanctity of the body, the dignity of the dead, and the boundaries which preserve this world; and in order that such power shall neither corrupt its bearer nor imperil those who dwell within our protection, do ordain and establish these Prohibitions under the authority of the Accord of Ash.', 'The Art shall not, by its nature alone, be deemed wicked, unlawful, or corrupt.', 'It is the purpose for which power is exercised, and the acts committed through it, by which judgment shall be made.', 'There exist, however, certain uses of the Art so grievous that their commission constitutes an offense not merely against an individual, but against Noctura and the Accord itself.', 'Therefore shall these Seven Prohibitions stand as the highest laws governing the exercise of magic within Noctura.'],
+    articles: [
+      A('ARTICLE I', 'Of Life', ['Section 1. No practitioner shall knowingly and deliberately employ the Art for the purpose of taking mortal life.', 'Section 2. Death brought about by spell, curse, ritual, enchantment, or other deliberate exercise of magical power shall constitute a violation of this Article.', 'Section 3. Acts committed by accident, coercion, necessity, or in the immediate defense of life shall be examined according to the circumstances thereof before violation of this Article may be established.']),
+      A('ARTICLE II', 'Of the Sanctity of the Body', ["Section 1. No practitioner shall, through exercise of the Art, transform or fundamentally alter the body or natural form of another without that person's knowing and freely given consent.", 'Section 2. No consent shall be considered freely given where obtained through coercion, deception concerning the nature of the act, enchantment, compulsion, or other supernatural influence upon the will.', 'Section 3. Nothing contained herein shall prohibit those acts reasonably undertaken for the preservation of a life in immediate peril, provided such acts are subject thereafter to judgment under the Accord.']),
+      A('ARTICLE III', 'Of the Sanctity of the Mind', ['Section 1. The thoughts, memories, dreams, and inner consciousness of every person shall be held inviolate.', 'Section 2. No practitioner shall, without invitation or lawful cause recognized under the Accord, enter, search, extract from, alter, implant within, or otherwise intrude upon the mind of another by means of the Art.'], 'Section 3. That which is knowingly and freely offered may be received. That which has not been offered shall not be taken.'),
+      A('ARTICLE IV', 'Of the Freedom of the Will', ["Section 1. No practitioner shall employ the Art to deprive another person of the freedom to choose or act according to that person's own will.", 'Section 2. No enchantment, spell, curse, influence, or other exercise of magical power shall be used to compel obedience, manufacture affection, force loyalty, suppress resistance, or substitute the will of one person for that of another.'], 'Section 3. No command shall become consent merely because the Art has made refusal impossible.'),
+      A('ARTICLE V', 'Of the Dead', ['Section 1. Death shall not render any person the property of another.', 'Section 2. Communion with the dead shall not, in itself, constitute a violation of this Article. The dead may be sought, spoken with, questioned, comforted, or aided where the nature and will of the spirit permit.', 'Section 3. No practitioner shall bind an unwilling spirit, imprison the dead for service, compel a soul to obedience, disturb mortal remains for the purpose of enslavement, or raise the remains of the dead as an unwilling instrument.'], 'Section 4. The dead may be heard. They shall not be owned.'),
+      A('ARTICLE VI', 'Of Time', ['Section 1. No practitioner shall knowingly travel against the established course of time for the purpose of altering that which has already occurred.', 'Section 2. Divination, prophecy, visions of the past, perceptions of possible futures, and other forms of temporal observation shall not, by themselves, constitute violations of this Article.'], 'Section 3. The past may be witnessed. It shall not be rewritten.'),
+      A('ARTICLE VII', 'Of That Which Lies Beyond', ['Section 1. There exist boundaries whose preservation predates Noctura and whose keeping is necessary to the continued safety of this world.', 'Section 2. No practitioner shall knowingly breach, weaken, circumvent, or open any boundary lawfully sealed against that which lies Beyond.', 'Section 3. No practitioner shall knowingly summon, invite, bargain with, provide passage to, or otherwise aid any being, power, or influence lawfully confined Beyond such boundary.', 'Section 4. Neither curiosity, pursuit of knowledge, promise of power, personal necessity, nor offered reward shall constitute lawful cause for violation of this Article.'], 'Section 5. What lies Beyond shall remain Beyond.'),
+      A('ARTICLE VIII', 'Of Judgment', ['Section 1. No person shall be condemned under these Articles upon accusation alone.', 'Section 2. Before judgment may be rendered, sufficient evidence of the prohibited act shall be established before the authority empowered by the Accord to hear such matters.', 'Section 3. Intent, consent, coercion, accident, necessity, circumstance, and the nature of the Art employed may be considered for the purpose of determining whether a violation of these Articles has occurred.', 'Section 4. Such considerations may determine guilt and may be considered in determining the sentence permitted under Article IX.']),
+      A('ARTICLE IX', 'Of Sentence', ['Section 1. Any person duly judged and found guilty of violating one or more of the Seven Prohibitions shall be declared guilty of the practice of Forbidden Magic.', 'Section 2. Judgment may include censure, restitution, restriction of the Art, binding, confinement, banishment, Severance, or death, according to the gravity of the offense.', 'Section 3. In determining sentence, the Court shall consider intent, harm inflicted, the number of persons endangered or harmed, prior violations, willingness to remedy the consequences of the offense, and the danger posed by the offender to Noctura and its people.', 'Section 4. Where a violation was deliberate and resulted in death, permanent enslavement of another\'s will, catastrophic disturbance of the dead, alteration of established time, or a breach of the boundaries protecting this world, death may be imposed as the highest sentence permitted under the Accord.', "Section 5. Severance may be imposed where the Court determines that the offender cannot safely be permitted continued access to the Art. Severance shall mean the permanent removal of the offender's ability to intentionally wield the Art.", 'Section 6. Binding may be imposed for a term certain or indefinitely and may suppress or seal some or all exercise of the Art, as the Court deems necessary for the protection of Noctura and its people.', 'Section 7. Banishment may prohibit the offender from entering or remaining within the jurisdiction of Noctura. A knowing return in defiance of such sentence shall constitute a separate offense under the Accord.', 'Section 8. Neither title, office, wealth, age, blood, lineage, citizenship, supernatural nature, nor service previously rendered to Noctura shall exempt any person from judgment or sentence.', 'Section 9. Ignorance of the Seven Prohibitions shall constitute no defense.']),
+      A('ARTICLE X', 'Of the Authority of These Articles', ['Section 1. These Articles shall bind all persons practicing the Art while within the lands, waters, boundaries, and jurisdiction of Noctura, whether resident, citizen, guest, or stranger.', 'Section 2. The Seven Prohibitions shall constitute the supreme restrictions upon the practice of the Art established under the Accord of Ash.', 'Section 3. Nothing herein shall be construed to prohibit the lawful practice, study, teaching, or preservation of magic merely because such practice possesses the capacity to cause harm.'], 'Section 4. For power itself is neither crime nor corruption. Power is not forbidden. Its abuse is.')
+    ],
+    closing: ['Thus ordained and entered beneath the Accord of Ash, that those who inherit the Art shall know both its liberty and its limits; that the innocent shall be protected from its abuse; and that no person possessing power shall stand beyond the reach of judgment.', 'So sworn. So bound. So shall it remain while Noctura endures.'] },
+  { id: 'covenant', short: 'COVENANT', kicker: 'LAWS OF NATURE', title: 'The Covenant of Restraint', subtitle: 'Established under the Accord of Ash', motto: 'Covenant of Restraint • Accord of Ash', hasSigners: false, signers: [],
+    intro: ['No being shall be condemned merely for their nature, nor required to deny that nature in order to claim Sanctuary. Yet no nature, hunger, instinct, blood, or birthright shall excuse the violation of another.'],
+    articles: [
+      A('I', 'The Restraint of the Body', ['No being shall, by hunger, instinct, nature, or innate power, take unwillingly from the body of another. Blood, flesh, breath, vitality, essence, or any other substance of life shall not be taken without consent, save where immediately necessary for the preservation of another life.'], 'Need shall not make consent unnecessary, nor shall hunger excuse violation.'),
+      A('II', 'The Restraint of Will', ['No being shall employ any power arising from blood, nature, condition, or kind to command, enthrall, possess, compel, or otherwise overcome the free will of another without their consent.', 'Nor shall such power be used to manufacture affection, loyalty, desire, obedience, or trust where it would not otherwise freely exist.'], 'Influence is not consent. Submission obtained through supernatural coercion is not freely given.'),
+      A('III', 'The Restraint of Violence', ['No being shall employ any strength, speed, weapon, form, venom, fang, claw, heightened faculty, or other power inherent to their nature for the deliberate and unlawful taking of life, the infliction of grievous harm, or the overpowering of another through supernatural advantage.', 'The defense of oneself or another, necessity, accident, and circumstances beyond reasonable control shall be weighed in judgment.'], 'Great power shall neither excuse cruelty nor make violence lawful merely because it comes naturally to the one who wields it.'),
+      A('IV', 'The Restraint of Transformation', ['No being shall impose their nature, condition, blood, curse, or likeness upon another without that person’s free and knowing consent.', 'No person shall be turned, infected, bound to a supernatural condition, or otherwise made into that which they were not by the deliberate act of another against their will.', 'Consent obtained through coercion, deception as to the nature of the transformation, or supernatural influence shall not be considered freely given.']),
+      A('V', 'The Restraint of Bonds', ['No being shall, by any power arising from blood, nature, condition, or kind, claim ownership over another person or bind another into unwilling service, obedience, or captivity.', 'No blood-bond, supernatural mark, oath of servitude, thrall, or other bond of dominion shall be imposed without the free and knowing consent of all persons bound thereby.', 'No willing bond shall deprive a person absolutely of the right to seek release from it. A bond intended to make another a possession rather than a person shall have no protection beneath this Covenant.']),
+      A('VI', 'The Restraint of the Vulnerable', ['No being shall prey upon, exploit, feed upon, bind, transform, enthrall, or otherwise use their supernatural nature against one who cannot freely and knowingly consent.', 'Children, the unconscious, the incapacitated, and those whose judgment or will has been substantially impaired shall be afforded particular protection beneath this Covenant.', 'So too shall the Anchored be protected, for one who remains ignorant of the supernatural cannot knowingly consent to that which they have no reason to understand. No being shall exploit the Veil of ignorance beneath which the Anchored dwell for predation, amusement, advantage, or gain.', 'Consent shall not be presumed from silence, dependence, fear, incapacity, ignorance, or an inability to resist. Nor may a being create such a condition for the purpose of obtaining that which would otherwise be refused.']),
+      A('VII', 'The Restraint of Revelation', ['No being shall knowingly reveal their supernatural nature, powers, or true form before the Anchored where such revelation may reasonably expose the hidden world or disturb the protections beneath which the Sanctuary endures.', 'Those whose natural form cannot pass among humankind shall take reasonable measures of glamour, transformation, dress, seclusion, or other concealment when moving among the Anchored.', 'Accident and necessity shall be weighed in judgment. Deliberate revelation undertaken to frighten, manipulate, exploit, or expose shall not be excused as mere expression of one’s nature.'], 'Sanctuary grants every being the freedom to exist as they are; it does not grant the freedom to endanger the Sanctuary by doing so without restraint.')
+    ],
+    closing: [] },
+  { id: 'ordo', short: 'ORDO CINERIS', kicker: 'THE ORDER OF ASH', title: 'The Founding Charter of the Ordo Cineris', subtitle: 'Established under the authority of the Accord of Ash', motto: 'From ash, Sanctuary. From Sanctuary, duty.', hasSigners: false, signers: [],
+    intro: [],
+    articles: [
+      A('I', 'Establishment and Purpose', ['By authority of the Accord of Ash, the Council of Noctura establishes the Ordo Cineris, the Order of Ash, as the lawful body charged with the investigation and enforcement of the supernatural laws of Sanctuary.', 'The Order shall preserve and enforce the Seven Prohibitions, the Covenant of Restraint, and such other laws as may lawfully govern supernatural powers, beings, artifacts, and phenomena within Noctura. The Order shall act beneath the authority of the Council and shall possess no authority to create law, overrule the Council, or declare a breach of the Accord of Ash.']),
+      A('II', 'Jurisdiction', ["The jurisdiction of the Ordo Cineris shall be limited to matters supernatural in nature. Ordinary crimes shall remain beyond the Order's authority except where the commission of such an offense also involves a violation of supernatural law.", 'Where ordinary and supernatural offenses arise from the same act, the Ordo may exercise authority over the supernatural violation without displacing the lawful jurisdiction governing the ordinary offense.']),
+      A('III', 'The Praetor', ['The Ordo Cineris shall be commanded by a single Praetor. The Praetor shall direct the Order, assign investigations, oversee enforcement, and hold the exclusive authority to extend invitations to prospective members.', 'The office of Praetor shall be a lifetime appointment. A Praetor may leave office by death, resignation, or removal for serious cause. The Council of Noctura alone may remove a Praetor for incapacity, corruption, abuse of authority, or violation of the laws of Sanctuary.']),
+      A('IV', 'Succession and Conclave', ['Upon vacancy of the office of Praetor, the Justiciars of the Ordo Cineris shall enter Conclave and elect a successor from among the members of the Order. The deliberations and individual votes of the Conclave shall remain secret.', 'The person chosen by the Conclave shall be presented to the Council of Noctura, which shall formally appoint the successor to the lifetime office of Praetor.']),
+      A('V', 'Membership and Ranks', ['Membership in the Ordo Cineris shall be by invitation only. No person may petition, apply for, or claim membership by their own authority. Invitations may be issued only by the Praetor and may be freely accepted or refused.', 'The ranks of the Order shall be: Praetor, Justiciar, Inquisitor, and Initiate. Justiciars are the senior members of the Order and alone participate in a Conclave. Inquisitors are full members entrusted with the ordinary investigative and enforcement authority of the Order. Initiates are newly invited members who serve under instruction and supervision until formally admitted as Inquisitors.']),
+      A('VI', 'Authority of the Order', ['In the lawful exercise of its jurisdiction, the Ordo Cineris may investigate suspected violations, question witnesses and suspects, gather and preserve evidence, seize dangerous supernatural objects or evidence, and detain those reasonably believed to have committed a serious supernatural violation or to present an immediate danger.', 'Members may employ reasonable force, including lawful supernatural abilities, when necessary to protect life, effect a lawful detention, or halt an ongoing violation. Entry into or search of private property shall require lawful authorization except where immediate danger or the imminent destruction of evidence makes delay unreasonable.', 'The Order shall investigate and present its findings for lawful judgment. It shall not determine guilt or impose sentence.']),
+      A('VII', 'Judgment', ['Alleged violations investigated by the Ordo Cineris shall be heard by a panel of judges appointed by the Council of Noctura. Such judges shall determine guilt and impose lawful sentence.', 'Only the Council of Noctura may determine that the Accord of Ash itself has been breached. The Ordo may investigate an alleged breach, preserve evidence, and contain an immediate threat, but it may not render that judgment.']),
+      A('VIII', 'Accountability', ['Authority within the Ordo Cineris grants no immunity from the laws of Sanctuary. Every member of the Order, from Initiate to Praetor, remains bound by the Accord of Ash, the Seven Prohibitions, the Covenant of Restraint, and all other laws lawfully applicable to them.']),
+      A('IX', 'The Oath of Ash', ['I enter this Order freely, and take upon myself the keeping of Sanctuary.', 'I shall uphold the Accord of Ash, the Seven Prohibitions, the Covenant of Restraint, and the lawful judgment of the Council.', 'I shall seek truth before judgment, restraint before force, and justice before vengeance.', 'I shall neither abuse the authority entrusted to me nor place myself beyond the laws I am sworn to uphold.', 'I shall protect Mortal, Supernatural, and Immortal alike, without favor of blood, nature, power, wealth, or station.', 'I shall keep the secrets entrusted to the Order and defend Noctura against those who would threaten its Sanctuary.', 'By my name, my word, and my honor, I bind myself to this Order until I am lawfully released from its service.'])
+    ],
+    closing: [] }
+];
+
+</script>
+</body>
+</html>

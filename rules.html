@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Noctura · Rules</title>
+<link rel="icon" href="assets/noctura-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}</style>
+</helmet>
+
+<nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+    <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+        <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
+        <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
+        <a href="world.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">WORLD</a>
+        <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
+        <a href="rules.html" style="color:#e6c9a3;text-decoration:none">RULES</a>
+        <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
+      </div>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;border-top:1px solid rgba(200,162,124,0.2)">
+      <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
+      <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
+      <a href="world.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
+      <a href="rules.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
+      <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="background:radial-gradient(ellipse at 50% 0%,#1a1612 0%,#0a090b 65%);padding:112px clamp(20px,5vw,56px) 88px;text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.36em;color:#c8a27c;margin:0 0 20px">OUT OF CHARACTER</p>
+  <h1 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.1;margin:0 auto;max-width:18ch">Noctura Rules</h1>
+  <p style="font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:44ch">Welcome to Noctura. We’re here to write stories, build characters, cause IC problems, and have a good time doing it. Please keep the following in mind while you’re here.</p>
+</header>
+
+<div style="max-width:960px;margin:0 auto;padding:0 clamp(20px,5vw,56px)">
+  <div style="display:flex;align-items:center;gap:20px;color:#c8a27c"><span style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#c8a27c)"></span><span style="font-size:18px">✦</span><span style="flex:1;height:1px;background:linear-gradient(90deg,#c8a27c,transparent)"></span></div>
+
+  <ol style="list-style:none;margin:0;padding:72px 0 96px">
+    <sc-for list="{{ rules }}" as="r" hint-placeholder-count="9">
+      <li style="display:grid;grid-template-columns:clamp(56px,8vw,96px) minmax(0,1fr);gap:8px 24px;padding:36px 0;border-bottom:1px solid rgba(200,162,124,0.25)">
+        <span style="font-family:'Cinzel',serif;font-size:clamp(28px,3.4vw,40px);line-height:1;color:#c8a27c">{{ r.num }}</span>
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(20px,2.2vw,26px);line-height:1.25;letter-spacing:0.04em;margin:0;color:#e6c9a3">{{ r.title }}</h2>
+          <sc-for list="{{ r.body }}" as="p" hint-placeholder-count="1">
+            <p style="font-size:21px;line-height:1.55;margin:0;color:#d9cfc0">{{ p }}</p>
+          </sc-for>
+          <sc-if value="{{ r.quote }}" hint-placeholder-val="{{ false }}">
+            <blockquote style="margin:4px 0;padding:4px 0 4px 20px;border-left:1px solid #c8a27c;font-style:italic;font-size:23px;line-height:1.45;color:#e9e1d4">{{ r.quote }}</blockquote>
+            <p style="font-size:21px;line-height:1.55;margin:0;color:#d9cfc0">{{ r.after }}</p>
+          </sc-if>
+        </div>
+      </li>
+    </sc-for>
+  </ol>
+</div>
+
+<section style="background:radial-gradient(ellipse at 50% 100%,#221b14 0%,#0a090b 70%);border-top:1px solid rgba(200,162,124,0.25);padding:104px clamp(20px,5vw,56px);text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 24px">✦</p>
+  <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(24px,3vw,36px);line-height:1.35;margin:0 auto;max-width:28ch">Communicate. Respect boundaries. Embrace consequences. Give other writers something to work with.</h2>
+  <p style="font-style:italic;font-size:24px;line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:40ch">Most importantly, help us make Noctura a place where people actually want to write.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:40px">
+    <a href="apply.html" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:16px 28px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">APPLICATION GUIDELINES</a>
+    <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#e6c9a3;border:1px solid #c8a27c;padding:15px 27px;text-decoration:none" style-hover="background:rgba(200,162,124,0.12);color:#fff3e0">JOIN THE DISCORD</a>
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:17px;color:#a89f92">
+    <span>Noctura Roleplay. A community in Second Life, not affiliated with Linden Lab.</span>
+    <a href="index.html" style="color:#a89f92">Return to Noctura</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
+  componentWillUnmount() { window.removeEventListener('resize', this.__r); }
+  __nav() { const s = this.state || {}; const n = (s.__w || 1200) < 860; return { wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })) }; }
+  renderVals() { return { ...this.__rv(), ...this.__nav() }; }
+  __rv() {
+ return { rules: RULES }; }
+}
+const RULES = [
+  { num: '01', title: "DON'T BE AN OOC DICK", body: ['Respect your fellow writers. Be kind, communicate, and remember that there is another person behind every character.'] },
+  { num: '02', title: 'ORIGINAL CHARACTERS ONLY', body: ['Noctura is an Original Character roleplay. All player characters should be your own original concepts.'] },
+  { num: '03', title: '18+ ONLY', body: ['All players must be 18 or older, and all player characters must also be 18+.', 'Under-18 NPCs are permitted, but interactions involving minor NPCs must remain PG.'] },
+  { num: '04', title: 'ICA = ICC', body: ['In Character Actions = In Character Consequences.', 'Characters are welcome to make terrible decisions. In fact, we encourage it. Just remember that what your character does may have realistic consequences within the story.'] },
+  { num: '05', title: 'HIATUS & ABSENCES', body: ['Real life happens.', "If you're going to be away or have limited availability, please let us know in #hiatus so other writers and staff know how to appropriately continue while you're gone."] },
+  { num: '06', title: 'NO METAGAMING OR GODMODDING', body: ["Don't use information your character couldn't reasonably know, and don't control another player's character, actions, thoughts, or outcomes without their permission.", 'When in doubt, communicate with the other writer.'] },
+  { num: '07', title: 'CONTINUITY MATTERS', body: ['Whatever happens here carries through ICly on-sim, and whatever happens on-sim carries through here.', 'Treat both spaces as part of the same character continuity.'] },
+  { num: '08', title: 'AI IS A TOOL, NOT THE WRITER', body: ['AI can be fun for pictures, research, brainstorming, and general inspiration.', "However, AI should NEVER become the character or the author's voice.", "We want your characterization, your writing, and your creativity — not AI's."] },
+  { num: '09', title: 'REMEMBER "YES, AND..."', body: ['Keep one of the best rules of improv in mind:'], quote: '"Yes, and..." rather than "No, actually..."', after: "We're collaboratively telling stories. Look for ways to build on what other writers give you rather than shutting down their contributions." }
+];
+
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Noctura · Application Guidelines</title>
+<link rel="icon" href="assets/noctura-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}button,input,select,textarea{font:inherit}input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:1px solid #e6c9a3;outline-offset:2px}</style>
+</helmet>
+
+<nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+    <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+        <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
+        <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
+        <a href="world.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">WORLD</a>
+        <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
+        <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
+        <a href="apply.html" style="color:#e6c9a3;text-decoration:none">APPLY</a>
+      </div>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;border-top:1px solid rgba(200,162,124,0.2)">
+      <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
+      <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
+      <a href="world.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
+      <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
+      <a href="apply.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="background:radial-gradient(ellipse at 50% 0%,#1a1612 0%,#0a090b 65%);padding:112px clamp(20px,5vw,56px) 88px;text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.36em;color:#c8a27c;margin:0 0 20px">APPLICATION GUIDELINES</p>
+  <h1 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.1;margin:0 auto;max-width:18ch">Seeking Sanctuary.</h1>
+  <p style="font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:40ch">Everyone who finds Noctura arrives from somewhere. Tell us who you are, and how the Undertow brought you here.</p>
+</header>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,56px)">
+
+  <div style="display:flex;align-items:center;gap:20px;color:#c8a27c"><span style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#c8a27c)"></span><span style="font-size:18px">✦</span><span style="flex:1;height:1px;background:linear-gradient(90deg,#c8a27c,transparent)"></span></div>
+
+  <section id="mortals" style="padding:88px 0 32px">
+    <div style="border:1px solid rgba(200,162,124,0.4);background:#0f0d10;padding:clamp(28px,4vw,56px);display:flex;flex-wrap:wrap;gap:40px 64px">
+      <div style="flex:1 1 320px">
+        <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 18px">KINDS OF BEING</p>
+        <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 20px;color:#e6c9a3">Mortals</h2>
+        <p style="font-size:21px;line-height:1.55;color:#d9cfc0;margin:0">Not everyone in Noctura is supernatural. Mortals live, work, build families, and exist alongside the supernatural population—whether they understand the world around them or not.</p>
+      </div>
+      <div style="flex:1 1 300px;display:flex;flex-direction:column">
+        <div style="border-top:1px solid rgba(200,162,124,0.3)">
+          <div style="padding:18px 0;border-bottom:1px solid rgba(200,162,124,0.3)">
+            <p style="display:flex;gap:16px;align-items:baseline;margin:0 0 8px"><span style="color:#c8a27c;font-size:14px">✦</span><span style="font-family:'Cinzel',serif;font-size:19px">Anchored</span></p>
+            <p style="font-size:19px;line-height:1.45;color:#b9afa1;margin:0 0 0 30px">Ordinary mortals who remain subject to the Undertow and its influence. Their perception and understanding of Noctura's supernatural reality is limited by the forces that keep the hidden world hidden.</p>
+          </div>
+          <div style="padding:18px 0;border-bottom:1px solid rgba(200,162,124,0.3)">
+            <p style="display:flex;gap:16px;align-items:baseline;margin:0 0 8px"><span style="color:#c8a27c;font-size:14px">✦</span><span style="font-family:'Cinzel',serif;font-size:19px">Awake</span></p>
+            <p style="font-size:19px;line-height:1.45;color:#b9afa1;margin:0 0 0 30px">Mortals who are aware of Noctura's supernatural reality. They can knowingly interact with supernatural society and understand the truth of the world around them, while remaining entirely human.</p>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding:20px 22px;border:1px dashed rgba(200,162,124,0.5)">
+          <p style="font-family:'Cinzel',serif;font-size:16px;color:#e6c9a3;margin:0 0 6px">Important</p>
+          <p style="font-size:19px;line-height:1.45;color:#b9afa1;margin:0">Being Awake does not give a mortal supernatural powers or abilities. They are still human. The difference is what they are capable of knowing and perceiving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="supernaturals" style="padding:0 0 32px">
+    <div style="border:1px solid rgba(200,162,124,0.4);background:#0f0d10;padding:clamp(28px,4vw,56px);display:flex;flex-wrap:wrap;gap:40px 64px">
+      <div style="flex:1 1 320px">
+        <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 18px">KINDS OF BEING</p>
+        <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 20px;color:#e6c9a3">Supernaturals</h2>
+        <p style="font-size:21px;line-height:1.55;color:#d9cfc0;margin:0 0 16px">The following supernatural character types are currently available for play in Noctura:</p>
+        <p style="font-size:19px;line-height:1.5;font-style:italic;color:#b9afa1;margin:0">This is not an exhaustive list! Please file a ticket if you'd like to submit an application for a supernatural being not on this list.</p>
+      </div>
+      <div style="flex:1 1 300px;display:flex;flex-direction:column">
+        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(200,162,124,0.3);display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));column-gap:28px">
+          <sc-for list="{{ supernaturals }}" as="sp" hint-placeholder-count="8">
+            <li style="display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.3)">
+              <span style="color:#c8a27c;font-size:14px">✦</span>
+              <span style="font-family:'Cinzel',serif;font-size:19px">{{ sp }}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <div style="margin-top:24px;padding:20px 22px;border:1px dashed rgba(200,162,124,0.5)">
+          <p style="font-family:'Cinzel',serif;font-size:16px;color:#e6c9a3;margin:0 0 6px">Other Supernaturals</p>
+          <p style="font-size:19px;line-height:1.45;color:#b9afa1;margin:0">Have another supernatural concept in mind? Unlisted character types may be considered with Staff Approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="immortals" style="padding:0 0 88px">
+    <div style="border:1px solid rgba(200,162,124,0.4);background:#0f0d10;padding:clamp(28px,4vw,56px);display:flex;flex-wrap:wrap;gap:40px 64px">
+      <div style="flex:1 1 320px">
+        <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 18px">KINDS OF BEING</p>
+        <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 20px;color:#e6c9a3">Immortals</h2>
+        <p style="font-size:21px;line-height:1.55;color:#d9cfc0;margin:0">Some beings in Noctura exist beyond the natural limits of mortal life. Whether born immortal, transformed, or returned from death, these beings do not age or die in the same way as mortals and other supernatural creatures.</p>
+      </div>
+      <div style="flex:1 1 300px;display:flex;flex-direction:column">
+        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(200,162,124,0.3)">
+          <sc-for list="{{ immortals }}" as="im" hint-placeholder-count="6">
+            <li style="display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.3)">
+              <span style="color:#c8a27c;font-size:14px">✦</span>
+              <span style="font-family:'Cinzel',serif;font-size:19px">{{ im }}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <div style="margin-top:24px;padding:20px 22px;border:1px dashed rgba(200,162,124,0.5)">
+          <p style="font-family:'Cinzel',serif;font-size:16px;color:#e6c9a3;margin:0 0 6px">Other Immortals</p>
+          <p style="font-size:19px;line-height:1.45;color:#b9afa1;margin:0">Unlisted immortal beings may be considered with Staff Approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section id="apply" style="background:#100e0c;border-top:1px solid rgba(200,162,124,0.3);border-bottom:1px solid rgba(200,162,124,0.3)">
+  <div style="max-width:820px;margin:0 auto;padding:96px clamp(20px,5vw,56px)">
+    <p style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 18px">CHARACTER APPLICATION</p>
+    <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.2;margin:0 0 20px">Applications are made on Discord.</h2>
+    <p style="font-size:21px;line-height:1.55;color:#d9cfc0;margin:0 0 40px;max-width:52ch">Join the Noctura Discord and submit your character through the application channel. Staff review and reply there.</p>
+    <ol style="list-style:none;margin:0 0 44px;padding:0;border-top:1px solid rgba(200,162,124,0.3)">
+      <sc-for list="{{ discordSteps }}" as="d" hint-placeholder-count="4">
+        <li style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;padding:20px 0;border-bottom:1px solid rgba(200,162,124,0.3);font-size:20px;line-height:1.45">
+          <span style="font-family:'Cinzel',serif;font-size:15px;color:#c8a27c;padding-top:4px">{{ d.num }}</span>
+          <span>{{ d.text }}</span>
+        </li>
+      </sc-for>
+    </ol>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:16px 28px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">APPLY ON DISCORD</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:17px;color:#a89f92">
+    <span>Noctura Roleplay. A community in Second Life, not affiliated with Linden Lab.</span>
+    <a href="index.html" style="color:#a89f92">Return to Noctura</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
+  componentWillUnmount() { window.removeEventListener('resize', this.__r); }
+  __nav() { const s = this.state || {}; const n = (s.__w || 1200) < 860; return { wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })) }; }
+  renderVals() { return { ...this.__rv(), ...this.__nav() }; }
+  __rv() {
+
+    return {
+      tiers: TIERS, supernaturals: ['Witches', 'Sorcerers', 'Werewolves', 'Psychics', 'Mediums', 'Shapeshifters', 'Dhampirs', 'Skinwalkers'], immortals: ['Vampires', 'Fae', 'Demons', 'Celestials', 'Ghosts & Spirits', 'Revenants'], requirements: REQS, goods: GOODS, bads: BADS, steps: STEPS, natures: NATURES,
+      discordSteps: DISCORD_STEPS
+    };
+  }
+}
+const TIERS = [
+  { name: 'Anchored Mortal Residents', status: 'NO APPLICATION', copy: 'Ordinary townsfolk unaware of the supernatural. Join the group and begin playing.' },
+  { name: 'Awake Mortals & Supernaturals', status: 'APPLICATION', copy: 'Mediums, witches, vampires, shapeshifters, fae and mortals who know the truth. Submit a character application below.' },
+  { name: 'Elders, Ancients & Unique Beings', status: 'STAFF REVIEW', copy: 'Characters of great age, rare kind, or significant power require an extended review and a conversation with staff.' },
+  { name: 'Ordo Cineris & Council of Seven', status: 'BY INVITATION', copy: 'No person may petition, apply for, or claim membership by their own authority. Do not apply.' }
+];
+const REQS = [
+  { num: 'I', text: 'Have an active Second Life account and a Discord account.' },
+  { num: 'II', text: 'Join the Noctura Discord and read the rules in full.' },
+  { num: 'III', text: 'Read the Accord of Ash, the Seven Prohibitions, and the Covenant of Restraint.' },
+  { num: 'IV', text: 'One supernatural character per player until you are an established member.' },
+  { num: 'V', text: 'Your character must fit the setting: a modern New England coastal town.' },
+  { num: 'VI', text: 'Characters must be adults.' }
+];
+const GOODS = ['A clear reason your character sought or stumbled into Sanctuary.', 'Weaknesses, limits, and costs that make powers interesting.', 'Ties to the town: work, family, debts, or old enemies.', 'Room to grow through roleplay.'];
+const BADS = ['Founders, or direct relations of the Founders.', 'Characters who stand above the Accord or are immune to judgment.', 'Hybrids of multiple natures without prior staff approval.', 'Copies of characters from existing books, shows, or games.'];
+const STEPS = [
+  { num: 'I', title: 'Submit', copy: 'Post your character application in the Noctura Discord.' },
+  { num: 'II', title: 'Review', copy: 'Staff read every application, usually within a few days.' },
+  { num: 'III', title: 'Revise', copy: 'You may be asked questions or for changes. This is normal.' },
+  { num: 'IV', title: 'Arrive', copy: 'Once approved, receive your group tag and cross the Drift.' }
+];
+const DISCORD_STEPS = [
+  { num: 'I', text: 'Join the Noctura Discord using the button below.' },
+  { num: 'II', text: 'Read the rules and the laws of Sanctuary, then verify your account.' },
+  { num: 'III', text: 'Open the application channel and complete the character application.' },
+  { num: 'IV', text: 'Staff will reply in Discord with questions, revisions, or your approval.' }
+];
+const NATURES = ['Awake Mortal', 'Witch', 'Vampire', 'Shapeshifter', 'Fae', 'Medium', 'Spirit', 'Other (describe below)'];
+
+</script>
+</body>
+</html>
