@@ -26,6 +26,7 @@
         <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
         <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
         <a href="apply.html" style="color:#e6c9a3;text-decoration:none">APPLY</a>
+        <a href="faq.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">FAQ</a>
       </div>
       <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
     </sc-if>
@@ -41,6 +42,7 @@
       <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
       <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
       <a href="apply.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="faq.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">FAQ</a>
       <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
     </div>
   </sc-if>
@@ -170,17 +172,11 @@ class Component extends DCLogic {
   __rv() {
 
     return {
-      tiers: TIERS, supernaturals: ['Witches', 'Sorcerers', 'Werewolves', 'Psychics', 'Mediums', 'Shapeshifters', 'Dhampirs', 'Skinwalkers'], immortals: ['Vampires', 'Fae', 'Demons', 'Celestials', 'Ghosts & Spirits', 'Revenants'], requirements: REQS, goods: GOODS, bads: BADS, steps: STEPS, natures: NATURES,
+      supernaturals: ['Witches', 'Sorcerers', 'Werewolves', 'Psychics', 'Mediums', 'Shapeshifters', 'Dhampirs', 'Skinwalkers'], immortals: ['Vampires', 'Fae', 'Demons', 'Celestials', 'Ghosts & Spirits', 'Revenants'], requirements: REQS, goods: GOODS, bads: BADS, steps: STEPS, natures: NATURES,
       discordSteps: DISCORD_STEPS
     };
   }
 }
-const TIERS = [
-  { name: 'Anchored Mortal Residents', status: 'NO APPLICATION', copy: 'Ordinary townsfolk unaware of the supernatural. Join the group and begin playing.' },
-  { name: 'Awake Mortals & Supernaturals', status: 'APPLICATION', copy: 'Mediums, witches, vampires, shapeshifters, fae and mortals who know the truth. Submit a character application below.' },
-  { name: 'Elders, Ancients & Unique Beings', status: 'STAFF REVIEW', copy: 'Characters of great age, rare kind, or significant power require an extended review and a conversation with staff.' },
-  { name: 'Ordo Cineris & Council of Seven', status: 'BY INVITATION', copy: 'No person may petition, apply for, or claim membership by their own authority. Do not apply.' }
-];
 const REQS = [
   { num: 'I', text: 'Have an active Second Life account and a Discord account.' },
   { num: 'II', text: 'Join the Noctura Discord and read the rules in full.' },

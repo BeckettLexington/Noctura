@@ -26,6 +26,7 @@
         <a href="laws.html" style="color:#e6c9a3;text-decoration:none">LAWS</a>
         <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
         <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
+        <a href="faq.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">FAQ</a>
       </div>
       <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
     </sc-if>
@@ -41,6 +42,7 @@
       <a href="laws.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
       <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
       <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="faq.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">FAQ</a>
       <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
     </div>
   </sc-if>
@@ -78,11 +80,21 @@
       <h3 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(22px,2.4vw,28px);line-height:1.25;margin:0 0 22px;color:#e6c9a3">{{ a.title }}</h3>
       <div style="display:flex;flex-direction:column;gap:16px">
         <sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="3">
-          <p style="font-size:21px;line-height:1.6;margin:0;color:#d9cfc0">{{ p }}</p>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <sc-if value="{{ p.label }}" hint-placeholder-val="{{ false }}">
+              <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#a89f92">{{ p.label }}</span>
+            </sc-if>
+            <p style="font-size:21px;line-height:1.6;margin:0;color:#d9cfc0">{{ p.text }}</p>
+          </div>
         </sc-for>
       </div>
       <sc-if value="{{ a.maxim }}" hint-placeholder-val="{{ false }}">
-        <p style="font-style:italic;font-size:24px;line-height:1.4;margin:24px 0 0;padding-left:20px;border-left:1px solid #c8a27c;color:#e9e1d4">{{ a.maxim }}</p>
+        <div style="display:flex;flex-direction:column;gap:4px;margin:16px 0 0">
+          <sc-if value="{{ a.maxim.label }}" hint-placeholder-val="{{ false }}">
+            <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#a89f92">{{ a.maxim.label }}</span>
+          </sc-if>
+          <p style="font-style:italic;font-size:21px;line-height:1.6;margin:0;color:#e6c9a3">{{ a.maxim.text }}</p>
+        </div>
       </sc-if>
     </section>
   </sc-for>
@@ -148,10 +160,12 @@ class Component extends DCLogic {
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       tabsTop: narrow ? '77px' : '77px',
       tabs: DOCS.map((d, i) => ({ label: d.short, style: tab(i === doc), select: () => this.go(i) })),
-      doc: DOCS[doc], prev: ref(doc - 1), next: ref(doc + 1)
+      doc: fmt(DOCS[doc]), prev: ref(doc - 1), next: ref(doc + 1)
     };
   }
 }
+const split = (s) => { const m = s.match(/^Section (\d+)\.\s+([\s\S]*)$/); return m ? { label: 'SECTION ' + m[1], text: m[2] } : { label: null, text: s }; };
+const fmt = (d) => ({ ...d, articles: d.articles.map(a => ({ ...a, num: /^[IVX]+$/.test(a.num) ? 'ARTICLE ' + a.num : a.num, paras: a.paras.map(split), maxim: a.maxim ? split(a.maxim) : null })) });
 const A = (num, title, paras, maxim) => ({ num, title, paras, maxim: maxim || null });
 const DOCS = [
   { id: 'accord', short: 'ACCORD', kicker: 'THE FOUNDING LAW', title: 'The Accord of Ash', subtitle: 'Covenanted in the Year 1697', motto: 'So long as the Sanctuary endures, so too shall this Accord.', hasSigners: true,

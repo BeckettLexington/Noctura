@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Noctura · FAQ</title>
+<link rel="icon" href="assets/noctura-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>body{margin:0;background:#0a090b;color:#e9e1d4;font-family:'Cormorant Garamond',Georgia,serif;text-wrap:pretty}html{scroll-behavior:smooth}a{color:#e6c9a3}a:hover{color:#fff3e0}::selection{background:#c8a27c;color:#0a090b}button{font:inherit}button:focus-visible{outline:1px solid #e6c9a3;outline-offset:2px}</style>
+</helmet>
+
+<nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+    <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:clamp(14px,2vw,28px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em">
+        <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
+        <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
+        <a href="world.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">WORLD</a>
+        <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
+        <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
+        <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
+        <a href="faq.html" style="color:#e6c9a3;text-decoration:none">FAQ</a>
+      </div>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:12px 20px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(200,162,124,0.5);color:#e6c9a3;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;border-top:1px solid rgba(200,162,124,0.2)">
+      <a href="index.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">THE CITY</a>
+      <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
+      <a href="world.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
+      <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
+      <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
+      <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
+      <a href="faq.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">FAQ</a>
+      <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="margin-top:20px;align-self:flex-start;color:#0a090b;background:#c8a27c;padding:14px 22px;text-decoration:none;font-size:13px">JOIN THE DISCORD</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="background:radial-gradient(ellipse at 50% 0%,#1a1612 0%,#0a090b 65%);padding:104px clamp(20px,5vw,56px) 72px;text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.36em;color:#c8a27c;margin:0 0 20px">FREQUENTLY ASKED QUESTIONS</p>
+  <h1 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.1;margin:0 auto;max-width:18ch">Before You Cross the Drift</h1>
+  <p style="font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:#d9cfc0;margin:24px auto 0;max-width:44ch">Can't find your answer here? File a ticket in the Discord and staff will help.</p>
+</header>
+
+<main style="max-width:880px;margin:0 auto;padding:24px clamp(20px,5vw,56px) 104px">
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+    <section style="padding-top:64px">
+      <p style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.3em;color:#c8a27c;margin:0 0 18px">{{ g.title }}</p>
+      <div style="border-top:1px solid rgba(200,162,124,0.4)">
+        <sc-for list="{{ g.items }}" as="q" hint-placeholder-count="3">
+          <div style="border-bottom:1px solid rgba(200,162,124,0.25)">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;background:transparent;border:0;color:#e9e1d4;cursor:pointer;text-align:left" style-hover="color:#e6c9a3">
+              <span style="font-family:'Cinzel',serif;font-size:clamp(17px,1.8vw,20px);line-height:1.35">{{ q.q }}</span>
+              <span style="flex:none;font-family:'Cinzel',serif;font-size:22px;color:#c8a27c;width:20px;text-align:center">{{ q.icon }}</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:14px;padding:0 44px 26px 0">
+                <sc-for list="{{ q.a }}" as="p" hint-placeholder-count="1">
+                  <p style="font-size:20px;line-height:1.6;margin:0;color:#b9afa1">{{ p }}</p>
+                </sc-for>
+                <sc-if value="{{ q.link }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ q.link.href }}" style="align-self:flex-start;font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.16em;color:#e6c9a3;text-decoration:none;border-bottom:1px solid #c8a27c;padding-bottom:2px">{{ q.link.label }} →</a>
+                </sc-if>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+</main>
+
+<section style="background:radial-gradient(ellipse at 50% 100%,#221b14 0%,#0a090b 70%);border-top:1px solid rgba(200,162,124,0.25);padding:96px clamp(20px,5vw,56px);text-align:center">
+  <p style="font-size:22px;color:#c8a27c;margin:0 0 20px">✦</p>
+  <h2 style="font-family:'Cinzel',serif;font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1.25;margin:0 auto;max-width:22ch">Still have questions?</h2>
+  <p style="font-style:italic;font-size:22px;color:#d9cfc0;margin:16px 0 0">Join the Discord and file a ticket.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px">
+    <a href="https://discord.gg/chUgaxd6a" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#0a090b;background:#c8a27c;padding:16px 28px;text-decoration:none" style-hover="background:#e6c9a3;color:#0a090b">JOIN THE DISCORD</a>
+    <a href="apply.html" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;color:#e6c9a3;border:1px solid #c8a27c;padding:15px 27px;text-decoration:none" style-hover="background:rgba(200,162,124,0.12);color:#fff3e0">APPLICATION GUIDELINES</a>
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(200,162,124,0.25)">
+  <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:17px;color:#a89f92">
+    <span>Noctura Roleplay. A community in Second Life, not affiliated with Linden Lab.</span>
+    <a href="index.html" style="color:#a89f92">Return to Noctura</a>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: {} };
+  componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
+  componentWillUnmount() { window.removeEventListener('resize', this.__r); }
+  renderVals() {
+    const s = this.state; const n = (s.__w || 1200) < 860;
+    return {
+      wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !p.__mo })),
+      groups: FAQ.map((g, gi) => ({ title: g.title, items: g.items.map((it, ii) => {
+        const k = gi + '-' + ii; const open = !!s.open[k];
+        return { ...it, link: it.link || null, open, icon: open ? '−' : '+', toggle: () => this.setState(p => ({ open: { ...p.open, [k]: !p.open[k] } })) };
+      }) }))
+    };
+  }
+}
+const FAQ = [
+  { title: 'JOINING & APPLYING', items: [
+    { q: 'How do I join Noctura?', a: ['Join the Noctura Discord, read the rules and the laws of Sanctuary, and verify your account. From there, submit your character application in the application channel.'], link: { label: 'Application guidelines', href: 'apply.html' } },
+    { q: 'Do I need to apply to play?', a: ['Yes. All players need an application, whatever their character type. Applications are submitted through the application channel in the Discord and reviewed by staff.'] },
+    { q: 'How long does review take?', a: ['Staff review applications as they come in and reply in the Discord. You may be asked questions or for revisions before approval; this is normal.'] },
+    { q: 'How old do I need to be?', a: ['All players must be 18 or older, and all player characters must also be 18+.'], link: { label: 'Read the rules', href: 'rules.html' } }
+  ]},
+  { title: 'CHARACTER TYPES & LIMITS', items: [
+    { q: 'What can I play?', a: ['Mortals (Anchored or Awake), supernaturals such as witches, sorcerers, werewolves, psychics, mediums, shapeshifters, dhampirs, and skinwalkers, and immortals such as vampires, fae, demons, celestials, ghosts and spirits, and revenants.', 'Unlisted character types may be considered with Staff Approval.'], link: { label: 'Kinds of being', href: 'apply.html#mortals' } },
+    { q: 'What is the difference between Anchored and Awake?', a: ['Anchored mortals remain subject to the Undertow and rationalize what they see. Awake mortals know the truth of Noctura and can knowingly interact with supernatural society.', 'Being Awake does not give a mortal supernatural powers or abilities. They are still human.'], link: { label: 'World mechanics', href: 'world.html#echelons' } },
+    { q: 'Can I play a member of the Council or the Ordo Cineris?', a: ['Yes. You can apply for a new character who is already a member of the Council of Seven or the Ordo Cineris.', 'Existing characters cannot apply to join either body. They must be invited in character.'] },
+    { q: 'Are there limits on powers?', a: ['Yes. All magic and supernatural abilities must be disclosed on your application and are subject to staff approval.', 'In character, practitioners of the Art are bound by the Seven Prohibitions, and those whose power comes from their nature are bound by the Covenant of Restraint. These are IC laws: your character can break them, but ICA = ICC, and breaking them carries in-character consequences.', 'Supernaturals also remain biologically mortal and vulnerable to iron, silver, ballistic trauma, and exhaustion.'], link: { label: 'The laws of Sanctuary', href: 'laws.html' } },
+    { q: 'Can I use a character from a book, show, or game?', a: ['No. Noctura is an Original Character roleplay. All player characters should be your own original concepts.'] }
+  ]},
+  { title: 'MULTIPLE CHARACTERS', items: [
+    { q: 'Can I play more than one character?', a: ['Generally, players are allowed two characters. Each character needs its own application.'] },
+    { q: 'Can my characters share information?', a: ['No. Your characters cannot be used to metagame. What one character knows, the other does not, unless they learn it in character.'], link: { label: 'Read the rules', href: 'rules.html' } }
+  ]},
+  { title: 'CONSENT & CONTENT', items: [
+    { q: 'What content is allowed?', a: ['All players and player characters must be 18+. Under-18 NPCs are permitted, but interactions involving minor NPCs must remain PG.'] },
+    { q: 'What if my character does something terrible?', a: ['In Character Actions = In Character Consequences. Characters are welcome to make terrible decisions; just remember that what your character does may have realistic consequences within the story.'] },
+    { q: 'Can someone control what happens to my character?', a: ["No. Don't control another player's character, actions, thoughts, or outcomes without their permission, and expect the same in return. When in doubt, communicate with the other writer."] },
+    { q: 'Can I use AI to write my posts?', a: ["AI can be fun for pictures, research, brainstorming, and general inspiration. However, AI should NEVER become the character or the author's voice."] }
+  ]},
+  { title: 'STAFF & TICKETS', items: [
+    { q: 'How do I contact staff?', a: ['File a ticket in the Noctura Discord. Tickets are the way to ask questions, request approval for unlisted character types, and raise concerns.'] },
+    { q: 'What if I need to step away?', a: ["Real life happens. Let us know in #hiatus so other writers and staff know how to appropriately continue while you're gone."] },
+    { q: 'What if I have a problem with another player?', a: ['Communicate first where you can; remember that there is another person behind every character. If that does not resolve it, file a ticket and staff will help.'] }
+  ]}
+];
+
+</script>
+</body>
+</html>
