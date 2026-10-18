@@ -16,14 +16,15 @@
 </helmet>
 
 <nav style="position:sticky;top:0;z-index:10;background:rgba(10,9,11,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(200,162,124,0.25)">
-  <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+  <div style="max-width:1280px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
     <a href="index.html" style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.28em;color:#e6c9a3;text-decoration:none;margin-right:auto">NOCTURA</a>
     <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex;gap:clamp(14px,1.8vw,26px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em">
+      <div style="display:flex;gap:clamp(12px,1.6vw,24px);font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.14em">
         <a href="index.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">THE CITY</a>
         <a href="history.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">HISTORY</a>
         <a href="world.html" style="color:#e6c9a3;text-decoration:none">WORLD</a>
         <a href="directory.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">DIRECTORY</a>
+        <a href="government.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">TOWN HALL</a>
         <a href="laws.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">LAWS</a>
         <a href="rules.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">RULES</a>
         <a href="apply.html" style="color:#e9e1d4;text-decoration:none" style-hover="color:#e6c9a3">APPLY</a>
@@ -41,6 +42,7 @@
       <a href="history.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">HISTORY</a>
       <a href="world.html" style="color:#e6c9a3;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">WORLD</a>
       <a href="directory.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">DIRECTORY</a>
+      <a href="government.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">TOWN HALL</a>
       <a href="laws.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">LAWS</a>
       <a href="rules.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">RULES</a>
       <a href="apply.html" style="color:#e9e1d4;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(200,162,124,0.2)">APPLY</a>
@@ -143,7 +145,7 @@ class Component extends DCLogic {
   componentDidMount() { this.__r = () => this.setState({ __w: window.innerWidth }); this.__r(); window.addEventListener('resize', this.__r); }
   componentWillUnmount() { window.removeEventListener('resize', this.__r); }
   renderVals() {
-    const s = this.state || {}; const n = (s.__w || 1200) < 1100;
+    const s = this.state || {}; const n = (s.__w || 1280) < 1240;
     return {
       wide: !n, narrow: n, menuOpen: n && !!s.__mo, toggleMenu: () => this.setState(p => ({ __mo: !(p && p.__mo) })),
       groups: GROUPS.map(g => ({ ...g, items: g.items.map(i => ({ ...i, bullets: i.bullets || [], hasBullets: !!(i.bullets && i.bullets.length) })) }))
